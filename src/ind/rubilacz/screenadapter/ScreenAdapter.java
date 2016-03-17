@@ -34,7 +34,7 @@ public class ScreenAdapter {
 	}
 
 	public void adapt(int width, int height) throws Exception {
-		File fileDir = new File(ROOT_DIR + File.separator + String.format(TPL_DIR_NAME, width, height));
+		File fileDir = new File(ROOT_DIR + File.separator + String.format(TPL_DIR_NAME, height, width));
 		if (!fileDir.exists()) {
 			fileDir.mkdir();
 		}
@@ -75,7 +75,7 @@ public class ScreenAdapter {
 		for (String screen : screens) {
 			String screenDesc = sctScreens.get(screen).trim();
 			String[] size = screenDesc.split(",");
-			adapter.adapt(Integer.valueOf(size[0].trim()), Integer.valueOf(size[1].trim()));
+			adapter.adapt(Integer.valueOf(size[1].trim()), Integer.valueOf(size[0].trim()));
 		}
 	}
 
